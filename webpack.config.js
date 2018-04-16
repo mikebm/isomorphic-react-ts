@@ -1,10 +1,12 @@
 const path = require('path'),
     webpack = require('webpack');
 
+srcPath = path.resolve(__dirname),
+
 module.exports = {
-    context: path.resolve(__dirname, './src'),
+	context: srcPath,
     entry: {
-        app: './client/index.js',
+        app: './src/client/index.tsx',
     },
     output: {
         filename: '[name].bundle.js',
@@ -12,16 +14,18 @@ module.exports = {
         publicPath: '/assets',
     },
     module: {
-        rules: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: [/node_modules/],
-                use: [{
-                    loader: 'babel-loader',
-                    options: { presets: ['es2015', 'react'], plugins: ['transform-object-rest-spread', 'async-to-promises'] }
-                }],
-            }
-            //loaders for other file types can go here
-        ]
+		rules: [
+			{
+				test: /\.tsx?/,
+				exclude: [/node_modules/],
+				use: [{
+					loader: 'awesome-typescript-loader',
+				}],
+			}
+			//loaders for other file types can go here
+		]
+	},
+	resolve: {
+        extensions: ['.tsx', '.ts', '.js', '.json']
     }
 }

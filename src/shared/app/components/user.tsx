@@ -1,15 +1,25 @@
-import React, { Component } from 'react';
+import * as React from 'react'; 
+import { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Helmet } from 'react-helmet';
 import * as actions from '../redux/actions/user-actions'
 
-class User extends Component {
-    static fetchData({ store }) {
+export interface UserProps {
+	name: string;
+	email: string;
+}
+
+export interface UserState {
+	user: UserProps
+}
+
+class User extends Component<UserProps, UserState> {
+    static fetchData({ store }: any) {
         return store.dispatch(actions.getName(1));
     }
     componentDidMount() {
-        this.props.getName(1);
+        (this.props as any).getName(1);
     }
     render() {
         return (
@@ -27,12 +37,12 @@ class User extends Component {
         );
     }
 }
-function mapStateToProps(state) {
+function mapStateToProps(state: UserState) {
     return {
         ...state.user,
     }
 }
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: any) {
     return bindActionCreators(actions, dispatch);
 }
-export default connect(mapStateToProps, mapDispatchToProps, null, { withRef: true })(User);
+export default connect(mapStateToProps, mapDispatchToProps, null, { withRef: true })(User as any);

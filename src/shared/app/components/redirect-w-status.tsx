@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-const RedirectWithStatus = ({ key, from, to, status }) => (
+const RedirectWithStatus = ({ key, from, to, status }: any) => (
     <Route render={({ staticContext }) => {
         // there is no `staticContext` on the client, so
         // we need to guard against that here

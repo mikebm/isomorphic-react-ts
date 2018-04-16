@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import * as React from 'react'; 
+import { Component } from 'react';
 import { Helmet } from 'react-helmet';
 
 class Home extends Component {
-    static fetchData({ store }) {
+    static fetchData({ store }: any) {
         return new Promise(resolve => resolve());//default
     }
     render() {

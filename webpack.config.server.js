@@ -5,7 +5,7 @@ const nodeExternals = require('webpack-node-externals'),
 
 module.exports = {
     context: srcPath,
-    entry: './src/server/server.js',
+    entry: './src/server/server.tsx',
     output: {
         path: distPath,
         filename: 'server.js'
@@ -18,16 +18,18 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.tsx?/,
                 exclude: [/node_modules/],
                 use: [{
-                    loader: 'babel-loader',
-                    options: { presets: ['es2015', 'react'], plugins: ['transform-object-rest-spread'] }
+                    loader: 'awesome-typescript-loader',
                 }],
             }
             //loaders for other file types can go here
         ]
     },
-    externals: nodeExternals(),
+	externals: nodeExternals(),
+	resolve: {
+        extensions: ['.tsx', '.ts', '.js', '.json']
+    },
     devtool: 'source-map'
 };
