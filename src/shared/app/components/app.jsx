@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Link, Route } from 'react-router-dom';
 import RedirectWithStatus from './redirect-w-status.jsx';
 import Navbar from './navbar.jsx';
-import routeOptions from '../routes/routes';
+import routeOptions from '../../routes/routes';
 
 class App extends Component {
     render() {

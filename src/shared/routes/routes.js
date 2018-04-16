@@ -1,6 +1,6 @@
-import Navbar from '../app/navbar.jsx';
-import Home from '../app/home.jsx';
-import User from '../app/user.jsx';
+import Navbar from '../app/components/navbar.jsx';
+import Home from '../app/components/home.jsx';
+import User from '../app/components/user.jsx';
 
 export default {
     routes: [
@@ -22,4 +22,4 @@ export default {
             status: 301
         }
     ]
-} 
+}
