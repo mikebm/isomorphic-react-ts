@@ -9,7 +9,7 @@
     "build:client": "webpack --progress --colors --config webpack.config.js",
     "build:server": "webpack --progress --colors --config webpack.config.server.js",
     "dev": "webpack-dev-server --open --progress --colors",
-    "start": "webpack --progress --colors --config webpack.config.js && webpack --progress --colors --config webpack.config.server.js && node dist/server.js"
+    "start": "webpack --progress --colors --config webpack.config.js && webpack --progress --colors --config webpack.config.server.js && node --inspect dist/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -43,6 +43,7 @@
     "redux": "^3.7.2",
     "redux-observable": "^0.18.0",
     "rxjs": "^5.5.10",
+    "core-services-api-client": "git+https://github.com/buildcom/build-rest-client.git#data-services",
     "webpack-node-externals": "^1.7.2"
   }
 }

@@ -1,10 +1,9 @@
 const nodeExternals = require('webpack-node-externals'),
     path = require('path'),
-    srcPath = path.resolve(__dirname),
     distPath = path.resolve(__dirname, 'dist');
 
 module.exports = {
-    context: srcPath,
+	mode: 'development',
     entry: './src/server/server.tsx',
     output: {
         path: distPath,
@@ -26,7 +25,8 @@ module.exports = {
             }
             //loaders for other file types can go here
         ]
-    },
+	},
+	// keeps node_modules out of bundle
 	externals: nodeExternals(),
 	resolve: {
         extensions: ['.tsx', '.ts', '.js', '.json']

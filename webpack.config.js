@@ -1,10 +1,8 @@
 const path = require('path'),
     webpack = require('webpack');
 
-srcPath = path.resolve(__dirname),
-
 module.exports = {
-	context: srcPath,
+	mode: 'development',
     entry: {
         app: './src/client/index.tsx',
     },
